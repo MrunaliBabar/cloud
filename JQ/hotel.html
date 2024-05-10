@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hotel Search</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="searchPage">
+
+  <div data-role="header">
+    <h1>Hotel Search</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <form id="searchForm">
+      <label for="location">Location:</label>
+      <input type="text" name="location" id="location">
+
+      <label for="checkin">Check-in Date:</label>
+      <input type="date" name="checkin" id="checkin">
+
+      <label for="checkout">Check-out Date:</label>
+      <input type="date" name="checkout" id="checkout">
+
+      <label for="rooms">Rooms:</label>
+      <select name="rooms" id="rooms">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+</div>
+
+<div data-role="page" id="resultsPage">
+
+  <div data-role="header">
+    <h1>Search Results</h1>
+  </div>
+
+  <div data-role="main" class="ui-content" id="searchResults">
+    
+  </div>
+
+</div>
+
+<script>
+  $(document).ready(function(){
+    $("#searchForm").submit(function(event){
+      event.preventDefault();
+      var location = $("#location").val();
+      var checkin = $("#checkin").val();
+      var checkout = $("#checkout").val();
+      var rooms = $("#rooms").val();
+
+      // Simulate search results
+      var results = [
+        { name: "Hotel A", location: "Location A", price: "$100" },
+        { name: "Hotel B", location: "Location B", price: "$120" },
+        { name: "Hotel C", location: "Location C", price: "$150" }
+      ];
+
+      displayResults(results);
+    });
+
+    function displayResults(results) {
+      var html = "";
+      $.each(results, function(index, hotel){
+        html += '<div class="ui-bar ui-bar-a">' +
+                  '<h3>' + hotel.name + '</h3>' +
+                  '<p>Location: ' + hotel.location + '</p>' +
+                  '<p>Price: ' + hotel.price + '</p>' +
+                '</div>';
+      });
+      $("#searchResults").html(html).enhanceWithin();
+      $.mobile.changePage("#resultsPage");
+    }
+  });
+</script>
+
+</body>
+</html>

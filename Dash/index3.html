@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+         body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: aliceblue;
+         }
+
+         #sidebar{
+            background-color: #3a4a6d;
+            color:white;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+         }
+
+         #sidebar ul{
+            list-style: none;
+            padding-left: 0;
+         }
+
+         #sidebar ul li{
+            padding:15px 20px;
+            border-bottom: 1px solid #4966a7;
+            transition: background-color 0.3s;
+         }
+
+         #sidebar ul li:last-child{
+            border-bottom: none;
+         }
+
+         #sidebar ul li:hover{
+            background-color: #5480df;
+         }
+
+         #content{
+            padding: 20px;
+         }
+
+         .card{
+            margin-bottom: 20px;
+            border: 1px solid #dee2de;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+         }
+         .card-title{
+            margin-bottom: 10px;
+            color: #3a4a6d;
+         }
+         .card-text{
+            color: #6a99f0;
+         }
+
+    </style>
+
+</head>
+<body>
+    <div class="container-fuild">
+ 
+        <div class="row">
+
+            <!-- sidebar -->
+            <div id="sidebar" class="col-md-3">
+                   <ul>
+                     <li>Dashboard</li>
+                     <li>Products</li>
+                     <li>Orders</li>
+                     <li>Customer</li>
+                     <li>Settings</li>
+                   </ul>
+            </div>
+
+            <!-- content -->
+            <div id="content" class="col-md-9">
+                <h2>Dashboard</h2>
+
+                <div class="row">
+                       
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Total Users</h5>
+                                <p class="card-text">500</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Total Products</h5>
+                                <p class="card-text">1000</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <!-- **** -->
+                <div class="row">
+                  
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Toatal Customers</h5>
+                                <p class="card-text">800</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Total Orders</h5>
+                                <p class="card-text">$1200</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</body>
+</html>

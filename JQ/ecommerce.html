@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>E-commerce Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="storePage">
+
+  <div data-role="header">
+    <h1>E-commerce Store</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <ul data-role="listview" id="itemList">
+      <li><a href="#" class="addToCart" data-id="1">Item 1</a></li>
+      <li><a href="#" class="addToCart" data-id="2">Item 2</a></li>
+      <li><a href="#" class="addToCart" data-id="3">Item 3</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<div data-role="page" id="cartPage">
+
+  <div data-role="header">
+    <h1>Shopping Cart</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <ul data-role="listview" id="cartList">
+      <li>Cart is empty</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+  $(document).on("pagecreate", function(){
+    var cartItems = [];
+
+    $(".addToCart").on("click", function(event){
+      event.preventDefault();
+      var itemId = $(this).data("id");
+      var itemName = $(this).text();
+
+      var existingItem = cartItems.find(item => item.id === itemId);
+      if (existingItem) {
+        existingItem.quantity++;
+      } else {
+        cartItems.push({ id: itemId, name: itemName, quantity: 1 });
+      }
+
+      updateCart();
+    });
+
+    function updateCart() {
+      var html = "";
+      if (cartItems.length > 0) {
+        $.each(cartItems, function(index, item){
+          html += '<li>' +
+                    '<h2>' + item.name + '</h2>' +
+                    '<p>Quantity: ' + item.quantity + '</p>' +
+                  '</li>';
+        });
+      } else {
+        html = '<li>Cart is empty</li>';
+      }
+      $("#cartList").html(html).listview("refresh");
+      $.mobile.changePage("#cartPage");
+    }
+  });
+</script>
+
+</body>
+</html>

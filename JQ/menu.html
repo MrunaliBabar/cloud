@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Restaurant Menu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <style>
+    .menuItem {
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+    .menuItem img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<div data-role="page">
+
+  <div data-role="header">
+    <h1>Restaurant Menu</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <div class="menuItem" id="item1">
+      <img src="https://via.placeholder.com/150" alt="Item 1">
+      <h2>Item 1</h2>
+      <p>Description of Item 1</p>
+      <a href="#item1-details" data-role="button">Details</a>
+    </div>
+    <div class="menuItem" id="item2">
+      <img src="https://via.placeholder.com/150" alt="Item 2">
+      <h2>Item 2</h2>
+      <p>Description of Item 2</p>
+      <a href="#item2-details" data-role="button">Details</a>
+    </div>
+  </div>
+
+</div>
+
+<div data-role="page" id="item1-details">
+  <div data-role="header">
+    <h1>Item 1 Details</h1>
+  </div>
+  <div data-role="main" class="ui-content">
+    <img src="https://via.placeholder.com/350" alt="Item 1">
+    <h2>Item 1</h2>
+    <p>Detailed description of Item 1</p>
+  </div>
+</div>
+
+<div data-role="page" id="item2-details">
+  <div data-role="header">
+    <h1>Item 2 Details</h1>
+  </div>
+  <div data-role="main" class="ui-content">
+    <img src="https://via.placeholder.com/350" alt="Item 2">
+    <h2>Item 2</h2>
+    <p>Detailed description of Item 2</p>
+  </div>
+</div>
+
+</body>
+</html>
